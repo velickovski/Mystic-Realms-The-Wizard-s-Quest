@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #d61313;
+}
+
+.story-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form {
+    margin-top: 20px;
+}
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cinzel', serif;
+    background: url('../static/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    overflow: hidden;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#game-container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#game-logo {
+    width: 100px;
+    animation: pulse 2s infinite;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 10px 0;
+    text-shadow: 2px 2px 5px #000;
+}
+
+#content {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 5px;
+}
+
+#start-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 30px;
+    font-size: 24px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff6b6b, #f94d6a);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    transition: background 0.5s;
+    margin-bottom: 15px;
+}
+
+#start-btn:hover {
+    background: linear-gradient(45deg, #f94d6a, #ff6b6b);
+}
+
+#wizard-status {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#story-content {
+    background-color: rgba(180, 31, 31, 0.1);   
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 200px;
+    white-space: pre-wrap;
+    font-size: 20px;
+    line-height: 1.5;
+    animation: fadeIn 1s;
+}
+
+#choices {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.choice-btn {
+    padding: 15px 25px;
+    margin: 10px 5px;
+    font-size: 18px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #6bffb5, #4df9a5);
+    border: none;
+    border-radius: 50px;
+    color: #000;
+    transition: background 0.5s;
+}
+
+.choice-btn:hover {
+    background: linear-gradient(45deg, #4df9a5, #6bffb5);
+}
+
+#loading {
+    font-style: italic;
+    color: #ccc;
+    text-align: center;
+    margin-top: 10px;
+}
+#health-bar-container {
+    width: 100%;
+    background-color: #444;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+#health-bar {
+    height: 20px;
+    background-color: #f00; /* Red color for health */
+    width: 100%; /* Full width at 100% health */
+    transition: width 0.5s ease-out;
+}
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

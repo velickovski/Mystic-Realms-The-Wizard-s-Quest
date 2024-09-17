@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wizard Adventure Game</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="header">
+            <h1>Wizard Adventure Game</h1>
+        </div>
+        <div id="content">
+            <button id="start-btn" class="btn">Start Your Adventure</button>
+            <div id="wizard-status" style="display: none;">
+                <strong>Name:</strong> <span id="wizard-name"></span><br>
+                <div id="health-bar-container">
+                    <div id="health-bar"></div>
+                </div>
+            </div>
+            <div id="story-content"></div>
+            <div id="choices"></div>
+            <p id="loading"></p>
+        </div>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+</html>
