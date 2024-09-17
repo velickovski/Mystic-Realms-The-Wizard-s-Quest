@@ -2,7 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
-flash_session/
+flask_session
+/flask_session
+flashk_session/
 # C extensions
 *.so
 
