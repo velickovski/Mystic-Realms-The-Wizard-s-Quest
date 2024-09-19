@@ -80,10 +80,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let typingQueue = [];
 
     function typeEffect(text, callback) {
-        typingQueue = [...text]; // Reset typing queue with new text
+        typingQueue = [...text];
         typing = true;
         const storyDiv = document.getElementById('story-content');
-        storyDiv.innerHTML = ''; // Clear previous content
+        storyDiv.innerHTML = ''; 
         function typingAnimation() {
             if (typingQueue.length > 0) {
                 const char = typingQueue.shift();
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 const choicesDiv = document.getElementById('choices');
-                choicesDiv.innerHTML = ''; // Clear previous choices
+                choicesDiv.innerHTML = '';
                 data.choices.forEach((choiceText, index) => {
                     const btn = document.createElement('button');
                     btn.innerText = choiceText;
