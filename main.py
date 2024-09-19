@@ -5,20 +5,13 @@ from flask import Flask, render_template, request, session, jsonify, stream_with
 from flask_session import Session
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
-
-# Configure Flask app
 app = Flask(__name__)
-
-# Set a secret key for session management
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-fallback-secret-key')
 
-# Configure session to use filesystem (for development)
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
-# Set your OpenAI API key
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def generate_random_wizard():
@@ -56,7 +49,7 @@ def load_knowledge(wizard, game_history):
     """
     Generate a knowledge base based on the wizard's attributes and game history. Make sure that the game history is max 50 words and catchy for the users to play.
     """
-    history = "\n".join(game_history[-10:])  # Include the last 10 events for context
+    history = "\n".join(game_history[-10:])
 
     knowledge = f"""
 You are an AI assistant in a text-based adventure game.
@@ -157,21 +150,18 @@ def get_story():
             chosen_option = "Continue your journey."
         game_history.append(f"Player chose to: {chosen_option}")
 
-        # Adjust wizard's health based on the choice
         health_change = calculate_health_change(chosen_option)
-        wizard['health'] += health_change  # health_change can be negative
-        wizard['health'] = max(0, min(wizard['health'], 100))  # Clamp health between 0 and 100
+        wizard['health'] += health_change
+        wizard['health'] = max(0, min(wizard['health'], 100))
 
-        session['wizard'] = wizard  # Update wizard in session
+        session['wizard'] = wizard 
 
-        # Check for game over
         if wizard['health'] <= 0:
             game_history.append("The wizard has perished.")
             session['game_over'] = True
     else:
-        # Starting the game
         chosen_option = ""
-        session['game_over'] = False  # Reset game over flag
+        session['game_over'] = False 
 
     session['game_history'] = game_history
     knowledge = load_knowledge(wizard, game_history)
@@ -180,14 +170,12 @@ def get_story():
     else:
         prompt = "Start the story without including any choices."
 
-    # Generate the next part of the story with streaming
     return Response(stream_with_context(get_model_response(prompt, knowledge)), mimetype='text/plain')
 
 def calculate_health_change(choice_text):
     """
     Determine the health change based on the player's choice.
     """
-    # Simple logic: certain keywords in choices affect health
     damage_keywords = ['fight', 'battle', 'confront', 'attack', 'enter the dark cave']
     heal_keywords = ['rest', 'heal', 'meditate', 'use a potion']
 
@@ -199,7 +187,7 @@ def calculate_health_change(choice_text):
         if keyword in choice_text.lower():
             return random.randint(5, 15)  # Random healing between 5 and 15
 
-    return 0  # No change in health
+    return 0
 
 @app.route('/get_choices', methods=['GET'])
 def get_choices():

@@ -71,7 +71,7 @@ h1 {
 #content {
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
-    padding: 20px;
+    padding: 45px;
     margin-top: 5px;
 }
 
@@ -101,7 +101,7 @@ h1 {
 
 #story-content {
     background-color: rgba(180, 31, 31, 0.1);   
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
     min-height: 200px;
     white-space: pre-wrap;
